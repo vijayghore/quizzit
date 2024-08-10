@@ -1,0 +1,130 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: inherit;
+    line-height: inherit;
+    scroll-behavior: smooth;
+}
+
+:root {
+    --primary-color: #3498db;
+    --secondary-color: #e4e4e4;
+    --font-size-base: 16px;
+    /* Base font size for default */
+    --font-size-lg: 18px;
+    /* Font size for large screens */
+    --font-size-md: 15px;
+    /* Font size for medium screens */
+    --font-size-sm: 12px;
+    /* Font size for small screens */
+    --font-size-xs: 10px;
+    /* Font size for extra small screens */
+    --spacing-unit: 8px;
+    --white: #ffffff;
+    --black: #000000;
+    --gray-light: #dadada;
+    --gray-dark: #333333;
+}
+
+html {
+    font-size: var(--font-size-base);
+    /* Default font size */
+    height: 100%;
+}
+
+/* Scrollbar styles for WebKit browsers */
+::-webkit-scrollbar {
+    width: var(--font-size-base);
+    height: 12px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--gray-dark);
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: var(--primary-color);
+    border-radius: 8px;
+    border: 1px solid var(--gray-dark);
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: var(--gray-dark);
+    background-color: var(--gray-light);
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    accent-color: var(--secondary-color);
+    scrollbar-color: var(--secondary-color) var(--gray-dark);
+    scrollbar-width: thin;
+}
+
+img {
+    max-width: 100%;
+}
+
+input {
+    width: 100%;
+    background-color: transparent;
+    outline: none;
+    border: none;
+    font-size: 1.5em;
+}
+
+input:has(a) {
+    text-decoration: none;
+}
+
+.input-light {
+    border-bottom: 2px solid var(--gray-light);
+    color: var(--white);
+}
+
+.input-light::placeholder {
+    color: var(--gray-light);
+    font-weight: lighter;
+}
+
+
+.input-dark {
+    border-bottom: 2px solid var(--gray-dark);
+    color: var(--black);
+}
+
+.input-dark::placeholder {
+    color: var(--gray-dark);
+    font-weight: lighter;
+}
+
+
+
+/* Media query for devices with viewport width between 1024px and 1200px */
+@media (min-width: 1024px) and (max-width: 1200px) {
+    :root {
+        --font-size-base: var(--font-size-lg);
+    }
+}
+
+/* Media query for devices with viewport width between 768px and 1024px */
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+    :root {
+        --font-size-base: var(--font-size-md);
+    }
+}
+
+/* Media query for devices with viewport width between 480px and 768px */
+@media screen and (min-width: 480px) and (max-width: 768px) {
+    :root {
+        --font-size-base: var(--font-size-sm);
+    }
+}
+
+/* Media query for devices with viewport width up to 480px */
+@media screen and (max-width: 480px) {
+    :root {
+        --font-size-base: var(--font-size-xs);
+    }
+}

@@ -1,0 +1,38 @@
+.content-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: calc(5* var(--font-size-base));
+    height: calc(100vh - 4.5*var(--font-size-base));
+
+}
+
+
+.msg-content,
+.form-content {
+    height: 100%;
+    width: 100%;
+}
+
+
+.heading{
+    font-size: 2.3em;
+}
+
+.msg-heading{
+    font-size: 2.3em;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.msg-sub-heading{
+    font-size: 1.3em;
+    font-family: 'Times New Roman', Times, serif;
+    letter-spacing: 2px;
+}
+
+.msg-sub-sub-heading{
+    font-size: 1.2em;
+    word-spacing: 10px;
+    letter-spacing: 2px;
+}
+
