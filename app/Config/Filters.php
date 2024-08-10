@@ -80,8 +80,7 @@ class Filters extends BaseFilters
                 '/register',
                 '/authenticate',
                 '/store',
-                '/auth/google',
-                '/auth/googleCallback',
+                '/auth/*',
             ]],
         ],
         'after' => [

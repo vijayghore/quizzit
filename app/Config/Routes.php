@@ -6,8 +6,12 @@ use CodeIgniter\Router\RouteCollection;
  * @var RouteCollection $routes
  */
 $routes->get('/', 'Auth::dashboard');
+
 $routes->get('/auth/google', 'Auth::google');
 $routes->get('/auth/googleCallback', 'Auth::googleCallback');
+
+$routes->get('/auth/github', 'Auth\AuthGithub::github');
+$routes->get('/auth/githubCallback', 'Auth\AuthGithub::githubCallback');
 
 $routes->get('/register', 'Auth::register');
 $routes->post('/store', 'Auth::store');

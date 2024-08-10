@@ -157,9 +157,12 @@ class Auth extends BaseController
             $token = $client->fetchAccessTokenWithAuthCode($code);
 
             $client->setAccessToken($token['access_token']);
-
+            
+          
             $googleService = new Google_Service_Oauth2($client);
             $googleAccountInfo = $googleService->userinfo->get();
+
+
 
             $email = $googleAccountInfo->email;
             $name = $googleAccountInfo->name;
@@ -170,12 +173,20 @@ class Auth extends BaseController
             $student = $studentModel->where('email', $email)->orWhere('google_id', $googleId)->first();
 
             if (!$student) {
-                $studentModel->save([
+
+                $saved = $studentModel->save([
                     'name' => $name,
                     'email' => $email,
-                    'google_id' => $googleId,
+                    'google_id' => $googleId, 
                     'picture' => $picture,
                 ]);
+                
+                if (!$saved) {
+                    // If save fails, handle the error
+                    // You can log the error or return an error message
+                    log_message('error', 'Failed to save student record: ' . json_encode($studentModel->errors()));
+                    return redirect()->back()->with('error', 'Failed to save user information. Please try again.');
+                }
 
                 $student = $studentModel->where('email', $email)->first();
 
