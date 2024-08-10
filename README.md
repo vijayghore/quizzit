@@ -1,68 +1,123 @@
-# CodeIgniter 4 Application Starter
 
-## What is CodeIgniter?
+# Quizzit
 
-CodeIgniter is a PHP full-stack web framework that is light, fast, flexible and secure.
-More information can be found at the [official site](https://codeigniter.com).
+Quizzit is a quiz application built using CodeIgniter 4. The project allows students to register, log in, and participate in quizzes. The application is designed to be simple, scalable, and easy to extend with additional features.
 
-This repository holds a composer-installable app starter.
-It has been built from the
-[development repository](https://github.com/codeigniter4/CodeIgniter4).
+## Table of Contents
 
-More information about the plans for version 4 can be found in [CodeIgniter 4](https://forum.codeigniter.com/forumdisplay.php?fid=28) on the forums.
+- [Requirements](#requirements)
+- [Installation](#installation)
+- [Database Setup](#database-setup)
+- [Running the Application](#running-the-application)
+- [Project Structure](#project-structure)
+- [Features](#features)
+- [Contributing](#contributing)
+- [License](#license)
 
-You can read the [user guide](https://codeigniter.com/user_guide/)
-corresponding to the latest version of the framework.
+## Requirements
 
-## Installation & updates
+- PHP 7.3 or higher
+- MySQL 5.6 or higher
+- Composer
+- Apache/Nginx Web Server
 
-`composer create-project codeigniter4/appstarter` then `composer update` whenever
-there is a new release of the framework.
+## Installation
 
-When updating, check the release notes to see if there are any changes you might need to apply
-to your `app` folder. The affected files can be copied or merged from
-`vendor/codeigniter4/framework/app`.
+1. **Clone the repository:**
 
-## Setup
+   ```bash
+   git clone https://github.com/vijayghore/quizzit.git
+   ```
 
-Copy `env` to `.env` and tailor for your app, specifically the baseURL
-and any database settings.
+2. **Navigate to the project directory:**
 
-## Important Change with index.php
+   ```bash
+   cd quizzit
+   ```
 
-`index.php` is no longer in the root of the project! It has been moved inside the *public* folder,
-for better security and separation of components.
+3. **Install the dependencies:**
 
-This means that you should configure your web server to "point" to your project's *public* folder, and
-not to the project root. A better practice would be to configure a virtual host to point there. A poor practice would be to point your web server to the project root and expect to enter *public/...*, as the rest of your logic and the
-framework are exposed.
+   ```bash
+   composer install
+   ```
 
-**Please** read the user guide for a better explanation of how CI4 works!
+4. **Set up your environment file:**
 
-## Repository Management
+   Copy the `.env.example` to `.env` and modify the database settings to match your local setup.
 
-We use GitHub issues, in our main repository, to track **BUGS** and to track approved **DEVELOPMENT** work packages.
-We use our [forum](http://forum.codeigniter.com) to provide SUPPORT and to discuss
-FEATURE REQUESTS.
+   ```bash
+   cp env.example .env
+   ```
 
-This repository is a "distribution" one, built by our release preparation script.
-Problems with it can be raised on our forum, or as issues in the main repository.
+   Update the following lines in the `.env` file:
 
-## Server Requirements
+   ```bash
+   database.default.hostname = localhost
+   database.default.database = quizzit_db
+   database.default.username = your_username
+   database.default.password = your_password
+   database.default.DBDriver = MySQLi
+   ```
 
-PHP version 8.1 or higher is required, with the following extensions installed:
+5. **Generate the application key:**
 
-- [intl](http://php.net/manual/en/intl.requirements.php)
-- [mbstring](http://php.net/manual/en/mbstring.installation.php)
+   ```bash
+   php spark key:generate
+   ```
 
-> [!WARNING]
-> - The end of life date for PHP 7.4 was November 28, 2022.
-> - The end of life date for PHP 8.0 was November 26, 2023.
-> - If you are still using PHP 7.4 or 8.0, you should upgrade immediately.
-> - The end of life date for PHP 8.1 will be December 31, 2025.
+## Database Setup
 
-Additionally, make sure that the following extensions are enabled in your PHP:
+1. **Create the database:**
 
-- json (enabled by default - don't turn it off)
-- [mysqlnd](http://php.net/manual/en/mysqlnd.install.php) if you plan to use MySQL
-- [libcurl](http://php.net/manual/en/curl.requirements.php) if you plan to use the HTTP\CURLRequest library
+   Make sure to create a MySQL database named `quizzit_db` (or as specified in your `.env` file).
+
+   ```sql
+   CREATE DATABASE quizzit_db;
+   ```
+
+2. **Run the migrations:**
+
+   Use CodeIgniter's migration feature to create the necessary tables.
+
+   ```bash
+   php spark migrate
+   ```
+
+## Running the Application
+
+1. **Start the development server:**
+
+   CodeIgniter provides a built-in development server for testing.
+
+   ```bash
+   php spark serve
+   ```
+
+   The application will be accessible at `http://localhost:8080`.
+
+## Project Structure
+
+- **app/Controllers**: Contains all the controllers.
+- **app/Models**: Contains all the models.
+- **app/Views**: Contains the view files for the user interface.
+- **app/Database/Migrations**: Contains the migration files for database schema.
+
+## Features
+
+- **User Registration**: Students can create an account.
+- **User Login**: Registered students can log in to the system.
+- **Quizzes**: Participate in quizzes (to be implemented).
+
+## Contributing
+
+Contributions are welcome! Please follow the steps below to contribute:
+
+1. Fork the repository.
+2. Create a new branch: `git checkout -b feature-name`.
+3. Make your changes and commit them: `git commit -m 'Add feature'`.
+4. Push to the branch: `git push origin feature-name`.
+5. Submit a pull request.
+
+## License
+
+This project is open-source and you can also contribute.
