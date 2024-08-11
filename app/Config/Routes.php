@@ -7,8 +7,8 @@ use CodeIgniter\Router\RouteCollection;
  */
 $routes->get('/', 'Auth::dashboard');
 
-$routes->get('/auth/google', 'Auth::google');
-$routes->get('/auth/googleCallback', 'Auth::googleCallback');
+$routes->get('/auth/google', 'Auth\AuthGoogle::google');
+$routes->get('/auth/googleCallback', 'Auth\AuthGoogle::googleCallback');
 
 $routes->get('/auth/github', 'Auth\AuthGithub::github');
 $routes->get('/auth/githubCallback', 'Auth\AuthGithub::githubCallback');
