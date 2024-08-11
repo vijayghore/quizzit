@@ -29,6 +29,7 @@
 
                 <div class="df jcc mt-4 gap-2">
                     <button type="submit" class="btn btn-dark">Login</button>
+                    
                     <a href="<?= base_url('/auth/google') ?>" class="btn btn-dark">Login with Google</a>
                     <a href="<?= base_url('/auth/github') ?>" class="btn btn-dark">Login with GitHub</a>
                 </div>

@@ -1,18 +1,38 @@
 <?= $this->extend('layouts/main') ?>
 
 <?= $this->section('content') ?>
-<div class="w-40 mx-auto">
-    <h1 class="text-center my-3">Add New Subject</h1>
 
-    <form action="<?= base_url('save-subject') ?>" method="post" class="" id="save-subject-form" onsubmit="return validateForm(event)">
-        <div class="mb-3">
-            <input type="text" name="description" id="description" placeholder="New Subject" class="input-dark" required>
+<div class="df gap-3 w-90 mx-auto min-vh-75">
 
+    <div class="w-60">
+        <h1 class="text-center my-3">Subjects We Already Have</h1>
+
+        <div class="dg gtc-3 gap-2">
+            <?php if ($subjects): ?>
+                <?php foreach ($subjects as $i => $row): ?>
+                    <div class="df aic jcc text-center bg-dark text-light p-3 rounded-1 fs-2">
+                        <?= esc($row['description']) ?>
+                    </div>
+                <?php endforeach; ?>
+            <?php else: ?>
+                <p class="text-center my-5">No subjects found.</p>
+            <?php endif; ?>
         </div>
-        <div class="mb-3 df jcc">
-            <button type="submit" class="btn btn-dark" id="save-btn">Save</button>
-        </div>
-    </form>
+
+    </div>
+
+    <div class="w-40">
+        <form action="<?= base_url('save-subject') ?>" method="post" class="border border-dark rounded-2  p-3 p-sticky t-50 transform-y-50" id="save-subject-form" onsubmit="return validateForm(event)">
+            <h1 class="text-center my-3">Add New Subject</h1>
+            <div class="mb-3">
+                <input type="text" name="description" id="description" placeholder="New Subject" class="input-dark" required>
+
+            </div>
+            <div class="mb-3 df jcc">
+                <button type="submit" class="btn btn-dark" id="save-btn">Save</button>
+            </div>
+        </form>
+    </div>
 </div>
 
 
