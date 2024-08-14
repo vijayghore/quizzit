@@ -31,13 +31,9 @@ class Subject extends BaseController
     {
         $subjectModel = new SubjectModel();
 
-        // id variable from the session
-        $session = session();
-        $id = $session->get('id');
-
         $data = [
             'description' => $this->request->getPost('description'),
-            'created_by' => $id,
+            'created_by' => session()->get('id'),
             'status' => 'inactive',
         ];
 

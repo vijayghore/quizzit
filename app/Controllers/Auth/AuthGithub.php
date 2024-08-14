@@ -3,7 +3,7 @@
 namespace App\Controllers\Auth;
 
 use App\Controllers\BaseController;
-use App\Models\StudentModel;
+use App\Models\UsersModel;
 use App\Controllers\Email;
 use League\OAuth2\Client\Provider\Github;
 
@@ -74,8 +74,8 @@ class AuthGithub extends BaseController
             }
 
             // Check if the user already exists in the database
-            $studentModel = new StudentModel();
-            $student = $studentModel->where('email', $email)->orWhere('github_id', $githubId)->first();
+            $usersModel = new UsersModel();
+            $student = $usersModel->where('email', $email)->orWhere('github_id', $githubId)->first();
 
             if (!$student) {
                 // Save the new user to the database
@@ -86,14 +86,14 @@ class AuthGithub extends BaseController
                     'picture' => $avatar,
                 ];
 
-                if (!$studentModel->save($saveData)) {
+                if (!$usersModel->save($saveData)) {
                     // Log errors if save failed
-                    log_message('error', 'Failed to save student record: ' . json_encode($studentModel->errors()));
+                    log_message('error', 'Failed to save student record: ' . json_encode($usersModel->errors()));
                     return redirect()->to('/login')->with('error', 'Failed to save user information. Please try again.');
                 }
 
                 // Retrieve the newly created user
-                $student = $studentModel->where('email', $email)->first();
+                $student = $usersModel->where('email', $email)->first();
 
                 // Prepare the welcome email
                 $mailObj = [

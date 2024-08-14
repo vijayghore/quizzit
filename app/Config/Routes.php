@@ -22,7 +22,8 @@ $routes->get('/dashboard', 'Auth::dashboard');
 
 $routes->get('/add-subject', 'Subject::addSubject');
 $routes->post('/save-subject', 'Subject::saveSubject');
-$routes->get('/add-question', 'Question::addQuestion');
-$routes->post('/add-question', 'Question::saveQuestion');
+
+$routes->get('/add-question', 'Questions::addQuestion');
+$routes->post('/save-question', 'Questions::saveQuestion');
 
 

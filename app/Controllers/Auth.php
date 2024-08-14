@@ -2,7 +2,7 @@
 
 namespace App\Controllers;
 
-use App\Models\StudentModel;
+use App\Models\UsersModel;
 use App\Controllers\Email;
 use Google_Client;
 use Google_Service_Oauth2;
@@ -26,11 +26,11 @@ class Auth extends BaseController
 
     public function store()
     {
-        $studentModel = new StudentModel();
+        $usersModel = new UsersModel();
 
         // Validate input
         $validation = \Config\Services::validation();
-        $validation->setRules($studentModel->validationRules);
+        $validation->setRules($usersModel->validationRules);
 
         if ($validation->withRequest($this->request)->run() === false) {
             return view('auth/register', ['validation' => $validation]);
@@ -44,7 +44,7 @@ class Auth extends BaseController
         ];
 
         $session = session();
-        if ($studentModel->save($data)) {
+        if ($usersModel->save($data)) {
             $session->setFlashdata('success', 'Successful Registration');
 
             $mailObj = [
@@ -66,7 +66,7 @@ class Auth extends BaseController
             return redirect()->to('/login');
         } else {
             // Handle failure
-            $errors = $studentModel->errors();
+            $errors = $usersModel->errors();
             $session->setFlashdata('error', $errors);
             return redirect()->back()->withInput();
         }
@@ -85,11 +85,11 @@ class Auth extends BaseController
 
     public function authenticate()
     {
-        $studentModel = new StudentModel();
+        $usersModel = new UsersModel();
         $email = $this->request->getPost('email');
         $password = $this->request->getPost('password');
 
-        $student = $studentModel->where('email', $email)->first();
+        $student = $usersModel->where('email', $email)->first();
 
         if ($student && password_verify($password, $student['password'])) {
             // Set session data

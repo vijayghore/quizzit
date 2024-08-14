@@ -3,7 +3,7 @@
 namespace App\Controllers\Auth;
 
 use App\Controllers\BaseController;
-use App\Models\StudentModel;
+use App\Models\UsersModel;
 use App\Controllers\Email;
 use Google_Client;
 use Google_Service_Oauth2;
@@ -53,12 +53,12 @@ class AuthGoogle extends BaseController
             $googleId = $googleAccountInfo->id;
             $picture = $googleAccountInfo->picture;
 
-            $studentModel = new StudentModel();
-            $student = $studentModel->where('email', $email)->orWhere('google_id', $googleId)->first();
+            $usersModel = new UsersModel();
+            $student = $usersModel->where('email', $email)->orWhere('google_id', $googleId)->first();
 
             if (!$student) {
 
-                $saved = $studentModel->save([
+                $saved = $usersModel->save([
                     'name' => $name,
                     'email' => $email,
                     'google_id' => $googleId, 
@@ -68,11 +68,11 @@ class AuthGoogle extends BaseController
                 if (!$saved) {
                     // If save fails, handle the error
                     // You can log the error or return an error message
-                    log_message('error', 'Failed to save student record: ' . json_encode($studentModel->errors()));
+                    log_message('error', 'Failed to save student record: ' . json_encode($usersModel->errors()));
                     return redirect()->back()->with('error', 'Failed to save user information. Please try again.');
                 }
 
-                $student = $studentModel->where('email', $email)->first();
+                $student = $usersModel->where('email', $email)->first();
 
                 $mailObj = [
                     'recipient' => $student['email'],

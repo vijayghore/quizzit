@@ -10,7 +10,7 @@
         <div class="dg gtc-3 gap-2">
             <?php if ($subjects): ?>
                 <?php foreach ($subjects as $i => $row): ?>
-                    <div class="df aic jcc text-center bg-dark text-light p-3 rounded-1 fs-2">
+                    <div class="df aic jcc text-center bg-dark hover-black text-light p-3 rounded-1 fs-2">
                         <?= esc($row['description']) ?>
                     </div>
                 <?php endforeach; ?>
