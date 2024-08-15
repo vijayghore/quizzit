@@ -25,5 +25,6 @@ $routes->post('/save-subject', 'Subject::saveSubject');
 
 $routes->get('/add-question', 'Questions::addQuestion');
 $routes->post('/save-question', 'Questions::saveQuestion');
+$routes->get('/view-questions', 'Questions::viewQuestions');
 
 
