@@ -40,6 +40,15 @@
             Add New Question
         </div>
     </div>
+    <div>
+        <div class="text-center">
+        <a href="<?php echo base_url('view-questions'); ?>">
+            <img src="<?= base_url('images/view-questions.svg'); ?>" alt="View Questions" class="w-75 p-4 ar1by1 bg-dark hover-black border border-black rounded-2 cp" /></a>
+        </div>
+        <div class="text-center fs-3 text-dark">
+            View All Questions
+        </div>
+    </div>
 </div>
 
 <?= $this->endSection() ?>
