@@ -27,4 +27,5 @@ $routes->get('/add-question', 'Questions::addQuestion');
 $routes->post('/save-question', 'Questions::saveQuestion');
 $routes->get('/view-questions', 'Questions::viewQuestions');
 
-
+$routes->get('/create-quiz', 'Quiz::createQuiz');
+$routes->post('/save-quiz', 'Quiz::saveQuiz');

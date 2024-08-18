@@ -131,29 +131,8 @@ textarea.input-dark::placeholder {
 }
 
 
-select.input-dark {
+select {
     width: 100%;
-    padding: 5px;
-    font-size: 1.5em;
-    border: 2px solid var(--gray-dark);
-    border-radius: 0.5em;
-    color: var(--black);
-    background-color: transparent;
-}
-
-select.input-dark:focus {
-    border: 2px solid var(--gray-dark);
-}
-
-option{
-    background-color: var(--gray-dark);
-    color: var(--gray-light);
-}
-
-option:hover {
-    background-color: #f0f0f0;
-    color: #000;
-    cursor: pointer;
 }
 
 

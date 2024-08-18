@@ -23,35 +23,35 @@
         </div>
 
         <div class="form-group">
-            <input type="text" id="option_1" name="option_1" placeholder="Option 1" class="input-dark" required>
+            <input type="text" id="option_1" name="option_1" placeholder="Option a" class="input-dark" required>
         </div>
 
         <div class="form-group">
-            <input type="text" id="option_2" name="option_2" placeholder="Option 2" class="input-dark" required>
+            <input type="text" id="option_2" name="option_2" placeholder="Option b" class="input-dark" required>
         </div>
 
         <div class="form-group">
-            <input type="text" id="option_3" name="option_3" placeholder="Option 3" class="input-dark" required>
+            <input type="text" id="option_3" name="option_3" placeholder="Option c" class="input-dark" required>
         </div>
 
         <div class="form-group">
-            <input type="text" id="option_4" name="option_4" placeholder="Option 4" class="input-dark" required>
+            <input type="text" id="option_4" name="option_4" placeholder="Option d" class="input-dark" required>
         </div>
 
         <div class="form-group">
-            <label for="" class="label">Correct Answer</label>
+            <label for="" class="form-label">Correct Answer</label>
             <div class="df jcc" role="group">
                 <input type="radio" class="radio-hidden" name="correct_answer" id="option1" value="1" autocomplete="off">
-                <label class="radio-label w-25 text-center" for="option1">Option 1</label>
+                <label class="radio-label w-25 text-center" for="option1">Option A</label>
 
                 <input type="radio" class="radio-hidden" name="correct_answer" id="option2" value="2" autocomplete="off">
-                <label class="radio-label w-25 text-center" for="option2">Option 2</label>
+                <label class="radio-label w-25 text-center" for="option2">Option B</label>
 
                 <input type="radio" class="radio-hidden" name="correct_answer" id="option3" value="3" autocomplete="off">
-                <label class="radio-label w-25 text-center" for="option3">Option 3</label>
+                <label class="radio-label w-25 text-center" for="option3">Option C</label>
 
                 <input type="radio" class="radio-hidden" name="correct_answer" id="option4" value="4" autocomplete="off">
-                <label class="radio-label w-25 text-center" for="option4">Option 4</label>
+                <label class="radio-label w-25 text-center" for="option4">Option D</label>
             </div>
         </div>
 

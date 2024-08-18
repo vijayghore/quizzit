@@ -416,7 +416,7 @@
 .btn {
     font-size: 1.2em;
     padding: 5px 20px;
-    border-radius: 1em;
+    border-radius: 0.8em;
     cursor: pointer;
     outline: none;
     border: none;
@@ -1071,7 +1071,7 @@
     min-height: 75vh;
 }
 
-.label{
+.form-label{
     font-size: calc(1.3 * var(--font-size-base));
     font-weight: 600;
 }
@@ -1083,7 +1083,6 @@
 .label-light{
     color: var(--gray-light);
 }
-
 
 .hover-black:hover{
     background-color: var(--black);
